@@ -20,7 +20,7 @@ composer require xndbogdan/filesize-conversions
 ## Usage
 
 ```php
-FilesizeConversions::FilesizeConversions::fromBytes(pow(1024, 5))->toPetabytes();
+FilesizeConversions::fromBytes(pow(1024, 5))->toPetabytes();
 ```
 
 ## Testing
