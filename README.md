@@ -8,6 +8,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/xndbogdan/filesize-conversions.svg?style=flat-square)](https://packagist.org/packages/xndbogdan/filesize-conversions)
 
 This is a php plugin that lets you convert filesizes.
+I'm not sure why would anyone need this, but here it is!
 
 ## Installation
 
