@@ -9,7 +9,7 @@ class FilesizeConversions
     private static function folderSize($dir, $level = 0)
     {
         // We do not want this to recurse forever, so we'll set a limit
-        if($level > 5) {
+        if ($level > 5) {
             return 0;
         }
 

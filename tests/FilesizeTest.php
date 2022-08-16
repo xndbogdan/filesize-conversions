@@ -54,8 +54,8 @@ it('can output filesize data', function () {
 
 $folderSize = (float)0;
 $fileList = scandir('src');
-foreach($fileList as $k => $v) {
-    if(!is_file('src' . DIRECTORY_SEPARATOR . $v)) {
+foreach ($fileList as $k => $v) {
+    if (! is_file('src' . DIRECTORY_SEPARATOR . $v)) {
         continue;
     }
     $folderSize += filesize('src' . DIRECTORY_SEPARATOR . $v);
