@@ -6,9 +6,35 @@ class FilesizeConversions
 {
     protected float $bytes;
 
+    private static function folderSize($dir, $level = 0)
+    {
+        // We do not want this to recurse forever, so we'll set a limit
+        if($level > 5) {
+            return 0;
+        }
+
+        $size = 0;
+
+        foreach (glob(rtrim($dir, '/').'/*', GLOB_NOSORT) as $each) {
+            $size += is_file($each) ? filesize($each) : self::folderSize($each);
+        }
+
+        return $size;
+    }
+
     public function __construct(float $bytes)
     {
         $this->bytes = $bytes;
+    }
+
+    public static function fromFile(string $path): self
+    {
+        return new self(filesize($path));
+    }
+
+    public static function fromFolder(string $path): self
+    {
+        return new self(self::folderSize($path));
     }
 
     public static function fromBytes(float $bytes): self

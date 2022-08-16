@@ -24,6 +24,12 @@ composer require xndbogdan/filesize-conversions
 FilesizeConversions::fromBytes(pow(1024, 5))->toPetabytes();
 ```
 
+You can also use this package to get a real file's size and convert it to anything, like this:
+
+```php
+FilesizeConversions::fromFile($yourFilePath)->toKilobytesHuman();
+```
+
 ## Testing
 
 ```bash
