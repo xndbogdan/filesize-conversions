@@ -1,6 +1,5 @@
 <?php
 
-use Spatie\Backtrace\File;
 use XndBogdan\FilesizeConversions\FilesizeConversions;
 
 it('can convert from all sizes to bytes', function () {
@@ -49,22 +48,22 @@ it('can output human readable data', function () {
     expect(FilesizeConversions::fromBytes(1225)->toKilobytesHuman())->toBe('1.2 KB');
 });
 
-it('expects negative values', function() {
+it('expects negative values', function () {
     expect(FileSizeConversions::fromBytes(-1)->toBytes());
 })->throws(\Exception::class);
 
-it('expects unintended quick conversion from type', function() {
+it('expects unintended quick conversion from type', function () {
     expect(FileSizeConversions::quickConvert('kilobytes', 'frogs', 100));
 })->throws(\Exception::class);
 
-it('expects unintended quick conversion to type', function() {
+it('expects unintended quick conversion to type', function () {
     expect(FileSizeConversions::quickConvert('ducks', 'kilobytes', 100));
 })->throws(\Exception::class);
 
-it('expects unintended quick conversion from negative value', function() {
+it('expects unintended quick conversion from negative value', function () {
     expect(FileSizeConversions::quickConvert('megabytes', 'kilobytes', -100));
 })->throws(\Exception::class);
 
-it('performs quick conversions', function() {
+it('performs quick conversions', function () {
     expect(FilesizeConversions::quickConvert('kilobytes', 'megabytesHuman', 2648))->toBe('2.59 MB');
 });
