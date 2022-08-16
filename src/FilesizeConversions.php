@@ -22,8 +22,31 @@ class FilesizeConversions
         return $size;
     }
 
+    public static function quickConvert(string $from, string $to, float $value): float | string {
+
+        if($value < 0) {
+            throw new \Exception('Invalid value');
+        }
+
+        $fromType = 'from'.ucfirst($from);
+        if(!method_exists(__CLASS__, $fromType)) {
+            throw new \Exception('Invalid conversion from');
+        }
+        $fromInstance = self::$fromType($value);
+        $toType = 'to'.ucfirst($to);
+        if(!method_exists($fromInstance, $toType)) {
+            throw new \Exception('Invalid conversion to');
+        }
+
+        $result = $fromInstance->$toType();
+        return is_float($result) ? round($result, 2) : $result;
+    }
+
     public function __construct(float $bytes)
     {
+        if($bytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         $this->bytes = $bytes;
     }
 
@@ -39,91 +62,145 @@ class FilesizeConversions
 
     public static function fromBytes(float $bytes): self
     {
+        if($bytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($bytes);
     }
 
     public static function fromKilobytes(float $kilobytes): self
     {
+        if($kilobytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($kilobytes * 1024);
     }
 
     public static function fromMegabytes(float $megabytes): self
     {
+        if($megabytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($megabytes * pow(1024, 2));
     }
 
     public static function fromGigabytes(float $gigabytes): self
     {
+        if($gigabytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($gigabytes * pow(1024, 3));
     }
 
     public static function fromTerabytes(float $terabytes): self
     {
+        if($terabytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($terabytes * pow(1024, 4));
     }
 
     public static function fromPetabytes(float $petabytes): self
     {
+        if($petabytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($petabytes * pow(1024, 5));
     }
 
     public static function fromExabytes(float $exabytes): self
     {
+        if($exabytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($exabytes * pow(1024, 6));
     }
 
     public static function fromZettabytes(float $zettabytes): self
     {
+        if($zettabytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($zettabytes * pow(1024, 7));
     }
 
     public static function fromYottabytes(float $yottabytes): self
     {
+        if($yottabytes < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($yottabytes * pow(1024, 8));
     }
 
     public static function fromBits(float $bits): self
     {
+        if($bits < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($bits / 8);
     }
 
     public static function fromKilobits(float $kilobits): self
     {
+        if($kilobits < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($kilobits / 8 * 1024);
     }
 
     public static function fromMegabits(float $megabits): self
     {
+        if($megabits < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($megabits / 8 * pow(1024, 2));
     }
 
     public static function fromGigabits(float $gigabits): self
     {
+        if($gigabits < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($gigabits / 8 * pow(1024, 3));
     }
 
     public static function fromTerabits(float $terabits): self
     {
+        if($terabits < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($terabits / 8 * pow(1024, 4));
     }
 
     public static function fromPetabits(float $petabits): self
     {
+        if($petabits < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($petabits / 8 * pow(1024, 5));
     }
 
     public static function fromExabits(float $exabits): self
     {
+        if($exabits < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($exabits / 8 * pow(1024, 6));
     }
 
     public static function fromZettabits(float $zettabits): self
     {
+        if($zettabits < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($zettabits / 8 * pow(1024, 7));
     }
 
     public static function fromYottabits(float $yottabits): self
     {
+        if($yottabits < 0) {
+            throw new \Exception('Invalid value');
+        }
         return new self($yottabits / 8 * pow(1024, 8));
     }
 

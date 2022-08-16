@@ -30,6 +30,11 @@ You can also use this package to get a real file's size and convert it to anythi
 FilesizeConversions::fromFile($yourFilePath)->toKilobytesHuman();
 ```
 
+Moreover, you can now do quick conversions
+```php
+FileSizeConversions::quickConvert('megabytes', 'kilobytes', 15);
+```
+
 ## Testing
 
 ```bash
