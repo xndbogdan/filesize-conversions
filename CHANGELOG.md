@@ -1,4 +1,7 @@
 # Changelog
 
-All notable changes to `:package_name` will be documented in this file.
+All notable changes to `filesize-conversions` will be documented in this file.
 
+## 1.0.0 - 2021-11-03
+
+- initial release

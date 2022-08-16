@@ -1,16 +1,16 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "xndbogdan/filesize-conversions",
+    "description": "Filesize conversions in PHP",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "xndbogdan",
+        "filesize-conversions"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/xndbogdan/filesize-conversions",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Bogdan Mihai",
+            "email": "bogdan.mosteanu@hey.com",
             "role": "Developer"
         }
     ],
@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "XndBogdan\\FilesizeConversions\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "XndBogdan\\FilesizeConversions\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -38,7 +38,10 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
