@@ -47,20 +47,3 @@ it('can convert from bytes to all sizes', function () {
 it('can output human readable data', function () {
     expect(FilesizeConversions::fromBytes(1225)->toKilobytesHuman())->toBe('1.2 KB');
 });
-
-it('can output filesize data', function () {
-    expect(FilesizeConversions::fromFile(getcwd() . DIRECTORY_SEPARATOR .'readme.md')->toKilobytes())->toBe(round(filesize(getcwd() . DIRECTORY_SEPARATOR . 'readme.md') / 1024, 2));
-});
-
-$folderSize = (float)0;
-$fileList = scandir(getcwd() . DIRECTORY_SEPARATOR . 'src');
-foreach ($fileList as $k => $v) {
-    if (! is_file('src' . DIRECTORY_SEPARATOR . $v)) {
-        continue;
-    }
-    $folderSize += filesize(getcwd() . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . $v);
-}
-
-it('can output folder size data', function () use ($folderSize) {
-    expect(FilesizeConversions::fromFolder(getcwd() . DIRECTORY_SEPARATOR . 'src')->toKilobytes())->toBe(round($folderSize / 1024, 2));
-});
